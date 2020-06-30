@@ -8,6 +8,12 @@ class PedidoController extends Controller
 {
     public function listar()
     {
+        $user = auth()->user();
+
+        if (! $user->tokenCan('pedido:listar')) {
+            return response('nao permitido', 403);
+        }
+
         $pedidos = collect([
             '0' => [
                 'numero' => '00001',
@@ -21,7 +27,7 @@ class PedidoController extends Controller
                 'data'   => new \DateTime(),
                 'usuario' => 2
             ]
-        ])->where('usuario', auth()->user()->id);
+        ])->where('usuario', $user->id);
 
         return $pedidos;
     }
