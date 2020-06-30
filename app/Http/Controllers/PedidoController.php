@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class PedidoController extends Controller
 {
+    /**
+     * Retorna uma lista de pedidos caso o usuário tenha permissão
+     *
+     * @return void
+     */
     public function listar()
     {
         $user = auth()->user();

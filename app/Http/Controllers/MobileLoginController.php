@@ -9,6 +9,12 @@ use Illuminate\Validation\ValidationException;
 
 class MobileLoginController extends Controller
 {
+    /**
+     * Retorna o token caso o usuário seja válido
+     *
+     * @param Request $request
+     * @return void
+     */
     public function login(Request $request)
     {
         $request->validate([
