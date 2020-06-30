@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/pedido', 'PedidoController@listar');
+
+Route::post('/mobile/login', 'MobileLoginController@login');
