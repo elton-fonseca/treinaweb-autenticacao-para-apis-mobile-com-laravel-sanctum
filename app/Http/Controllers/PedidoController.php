@@ -8,7 +8,7 @@ class PedidoController extends Controller
 {
     public function listar()
     {
-        return [
+        $pedidos = collect([
             '0' => [
                 'numero' => '00001',
                 'valor'  => 35.52,
@@ -21,6 +21,8 @@ class PedidoController extends Controller
                 'data'   => new \DateTime(),
                 'usuario' => 2
             ]
-        ];
+        ])->where('usuario', auth()->user()->id);
+
+        return $pedidos;
     }
 }

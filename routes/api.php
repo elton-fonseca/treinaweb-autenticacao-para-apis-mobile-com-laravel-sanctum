@@ -18,6 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/pedido', 'PedidoController@listar');
+Route::middleware('auth:sanctum')->get('/pedido', 'PedidoController@listar');
 
 Route::post('/mobile/login', 'MobileLoginController@login');
